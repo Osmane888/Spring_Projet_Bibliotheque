@@ -12,19 +12,19 @@ import java.util.UUID;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(uniqueConstraints = {
         @UniqueConstraint(name = "uk_prenom_nom", columnNames = {"prenom", "nom"})})
-public abstract class Personne extends BaseEntity<UUID>{
+public abstract class Person extends BaseEntity<UUID>{
 
     @Column(nullable = false)
-    private String prenom;
+    private String firstName;
     @Column(nullable = false)
-    private String nom;
+    private String lastName;
     @Column(nullable = false)
     private LocalDate birthDate;
 
-    public Personne(UUID id, String prenom, String nom, LocalDate birthDate) {
+    public Person(UUID id, String prenom, String nom, LocalDate birthDate) {
         super(id);
-        this.prenom = prenom;
-        this.nom = nom;
+        this.firstName = prenom;
+        this.lastName = nom;
         this.birthDate = birthDate;
     }
 }
