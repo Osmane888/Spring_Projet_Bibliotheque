@@ -8,12 +8,13 @@ import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true) @ToString(callSuper = true)
-public class Livre extends BaseEntity<Long>{
+public class Book extends BaseEntity{
 
     @Column(nullable = false, unique = true)
     private String isbn;
@@ -28,7 +29,7 @@ public class Livre extends BaseEntity<Long>{
     @ManyToOne(fetch = FetchType.EAGER)
     private Author author;
 
-    public Livre(Long id, String isbn, String title) {
+    public Book(UUID id, String isbn, String title) {
         super(id);
         this.isbn = isbn;
         this.title = title;

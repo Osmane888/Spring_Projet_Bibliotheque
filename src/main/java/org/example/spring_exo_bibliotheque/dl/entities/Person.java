@@ -12,7 +12,7 @@ import java.util.UUID;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(uniqueConstraints = {
         @UniqueConstraint(name = "uk_prenom_nom", columnNames = {"prenom", "nom"})})
-public abstract class Person extends BaseEntity<UUID>{
+public abstract class Person extends BaseEntity{
 
     @Column(nullable = false)
     private String firstName;

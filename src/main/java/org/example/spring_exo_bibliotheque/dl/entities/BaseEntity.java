@@ -10,23 +10,24 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @MappedSuperclass
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @ToString
 @Getter
-public abstract class BaseEntity<T> {
+public abstract class BaseEntity {
 
     @Id
-    private T id;
+    private UUID id;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    public BaseEntity(T id) {
+    public BaseEntity(UUID id) {
         this.id = id;
     }
 }
