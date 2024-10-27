@@ -1,13 +1,13 @@
 package org.example.spring_exo_bibliotheque.dl.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
+//@Table(uniqueConstraints = {
+//       @UniqueConstraint(name = "uk_prenom_nom", columnNames = {"prenom", "nom"})})
 @Entity
 @Getter @Setter
 @NoArgsConstructor

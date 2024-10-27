@@ -9,9 +9,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter @Setter
 @EqualsAndHashCode(callSuper = true) @ToString
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@Table(uniqueConstraints = {
-        @UniqueConstraint(name = "uk_prenom_nom", columnNames = {"prenom", "nom"})})
+@MappedSuperclass
 public abstract class Person extends BaseEntity{
 
     @Column(nullable = false)
