@@ -17,11 +17,8 @@ public class BookServicesImpl implements BookServices {
 
     @Override
     public Book save(Book book) {
-        if(bookRepository.findBookByIsbn(book.getIsbn()).isPresent()){
-            throw  new IllegalArgumentException("This book is already registered");
-        }else{
-            return bookRepository.save(book);
-        }
+        bookRepository.findBookByIsbn(book.getIsbn()).orElseThrow(() -> new IllegalArgumentException("This book is already registered"));
+        return bookRepository.save(book);
     }
 
     @Override

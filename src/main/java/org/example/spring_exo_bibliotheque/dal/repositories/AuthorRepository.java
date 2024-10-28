@@ -9,6 +9,6 @@ import java.util.UUID;
 
 public interface AuthorRepository extends JpaRepository<Author, UUID> {
 
-    @Query("select a from Author a where a.firstName = :firstName and a.lastName = :lastName and a.birthDate = :birthDate")
+    @Query("select count(a) > 0 from Author a where a.firstName = :firstName and a.lastName = :lastName and a.birthDate = :birthDate")
     boolean existsAuthorByFirstNameAndLastNameAndBirthDate(String firstName, String lastName, LocalDate birthDate);
 }

@@ -5,18 +5,16 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, UUID> {
 
-    @Query("select b from Book b where b.title = :title")
-    Optional<Book> findBookByTitle(String title);
+    @Query("select b from Book b where b.title ilike %:title%")
+    List<Book> findBookByTitle(String title);
 
     @Query("select b from Book b where b.isbn = :isbn")
     Optional<Book> findBookByIsbn(String isbn);
-
-    @Query("select b from Book b where b.id = :id")
-    Optional<Book> findBookById(UUID id);
 }

@@ -12,6 +12,6 @@ public enum Categories {
     SCIENCE_FICTION(),
     HORREUR(),
     BD(),
-    Thriller(),
-    Policier()
+    THRILLER(),
+    POLICIER()
 }

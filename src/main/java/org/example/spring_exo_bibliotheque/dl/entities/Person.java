@@ -6,10 +6,14 @@ import lombok.*;
 import java.time.LocalDate;
 import java.util.UUID;
 
+@Entity
 @NoArgsConstructor
 @Getter @Setter
 @EqualsAndHashCode(callSuper = true) @ToString
-@MappedSuperclass
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(uniqueConstraints = {
+        @UniqueConstraint(name = "uk_firstName_lastName_birthDate", columnNames = {"firstName", "lastName", "birthDate"})
+})
 public abstract class Person extends BaseEntity{
 
     @Column(nullable = false)
