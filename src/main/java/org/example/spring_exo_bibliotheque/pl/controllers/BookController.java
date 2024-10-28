@@ -17,10 +17,4 @@ public class BookController {
 
     private final BookServices bookServices;
 
-    @GetMapping
-    public String getBooks(Model model){
-        List<Book> books = bookServices.findAll();
-        model.addAttribute("books", books);
-        return "book/index";
-    }
 }
