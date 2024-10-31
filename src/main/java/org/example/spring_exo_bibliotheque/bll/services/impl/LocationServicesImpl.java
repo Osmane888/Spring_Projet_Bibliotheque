@@ -6,7 +6,9 @@ import org.example.spring_exo_bibliotheque.dal.repositories.LocationRepository;
 import org.example.spring_exo_bibliotheque.dl.entities.Location;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -17,21 +19,21 @@ public class LocationServicesImpl implements LocationServices {
 
     @Override
     public List<Location> findAll() {
-        return List.of();
+        return locationRepository.findAll();
     }
 
     @Override
     public Location findById(UUID id) {
-        return null;
+        return locationRepository.findById(id).orElseThrow();
     }
 
     @Override
-    public List<Location> findByStartDate() {
-        return List.of();
+    public List<Location> findByStartDate(LocalDate startDate) {
+        return locationRepository.findByStartAt(startDate);
     }
 
     @Override
-    public List<Location> findByEndDate() {
+    public List<Location> findByEndDate(LocalDate endDate) {
         return List.of();
     }
 

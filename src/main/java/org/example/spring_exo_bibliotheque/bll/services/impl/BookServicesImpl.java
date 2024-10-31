@@ -7,6 +7,7 @@ import org.example.spring_exo_bibliotheque.dl.entities.Book;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -23,10 +24,16 @@ public class BookServicesImpl implements BookServices {
 
     @Override
     public void delete(Book book) {
+        bookRepository.delete(book);
     }
 
     @Override
     public List<Book> findAll() {
         return bookRepository.findAll();
+    }
+
+    @Override
+    public List<Book> findByTitle(String title) {
+        return bookRepository.findBookByTitle(title);
     }
 }
