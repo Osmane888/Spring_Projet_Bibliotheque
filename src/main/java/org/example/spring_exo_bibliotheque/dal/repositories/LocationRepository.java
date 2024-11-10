@@ -13,5 +13,8 @@ import java.util.UUID;
 public interface LocationRepository extends JpaRepository<Location, UUID> {
 
     @Query("select l from Location l where l.startAt = :date")
-    List<Location> findByStartAt(LocalDate date);
+    List<Location> findByStartDate(LocalDate date);
+
+    @Query("select l from Location l where l.endAt = :date")
+    List<Location> findByEndDate(LocalDate date);
 }

@@ -17,4 +17,6 @@ public interface BookRepository extends JpaRepository<Book, UUID> {
 
     @Query("select b from Book b where b.isbn = :isbn")
     Optional<Book> findBookByIsbn(String isbn);
+
+    boolean existsByIdOrIsbn(UUID id, String isbn);
 }

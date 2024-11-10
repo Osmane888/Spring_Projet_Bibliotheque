@@ -16,4 +16,6 @@ public interface LocationServices {
     List<Location> findByStartDate(LocalDate startDate);
 
     List<Location> findByEndDate(LocalDate endDate);
+
+    Location save(Location location);
 }
